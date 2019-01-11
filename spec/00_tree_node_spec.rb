@@ -121,7 +121,7 @@ describe 'Searchable' do
   end
 
   describe "#dfs" do
-    let(:search_method) { :dfs }
+    # let(:search_method) { :dfs }
     it_behaves_like 'search method'
 
     it "should take correct path to descendant" do
