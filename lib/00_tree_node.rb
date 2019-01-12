@@ -40,7 +40,7 @@ class PolyTreeNode
         return self if @value == target_value
         
         @children.each do |child|
-            c = child.dfs(target_value)
+            c = child.dfs(target_value)  # WHY DO WE NEED TO MEMOIZE THIS FOR IT TO WORK?????
             return c if c != nil
         end
 
@@ -54,7 +54,6 @@ class PolyTreeNode
             return front_customer if front_customer.value == target_value
             queue.concat(front_customer.children)
         end
-
         nil
     end
 
