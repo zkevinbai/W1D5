@@ -37,25 +37,43 @@ class PolyTreeNode
     end 
 
     def dfs(target_value)
-        # debugger
         return self if @value == target_value
-
+        
         @children.each do |child|
-            t = child.dfs(target_value)
-            p t
-
+            c = child.dfs(target_value)
+            return c if c != nil
         end
 
         nil
+    end
 
+    def bfs(target_value)
+        queue = [self]
+        until queue.empty? do
+            front_customer = queue.shift
+            return front_customer if front_customer.value == target_value
+            queue.concat(front_customer.children)
+        end
+
+        nil
     end
 
 
 end
 
-# p = PolyTreeNode.new(1)
-# q = PolyTreeNode.new(2)
+# p = PolyTreeNode.new(1
 
 # q.parent=(p) 
 # q.parent
 
+# a = PolyTreeNode.new(1)
+# b = PolyTreeNode.new("2")
+# c = PolyTreeNode.new(3)
+# d = PolyTreeNode.new(4)
+# e = PolyTreeNode.new("5")
+# b.parent=(a)
+# c.parent=(a)
+# d.parent=(b)
+# e.parent=(b)
+
+# a.dfs("5") == e
