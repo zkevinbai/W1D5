@@ -42,6 +42,7 @@ class PolyTreeNode
         @children.each do |child|
             c = child.dfs(target_value)  # WHY DO WE NEED TO MEMOIZE THIS FOR IT TO WORK?????
             return c if c != nil
+            # return child.dfs(target_value) if child.dfs(target_value) != nil
         end
 
         nil
